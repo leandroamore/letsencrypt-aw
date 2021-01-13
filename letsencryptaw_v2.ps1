@@ -106,7 +106,7 @@ Complete-ACMEOrder $state -Order $order -CertificateKey $certKey;
 # Now we wait until the ACME service provides the certificate url
 while(-not $order.CertificateUrl) {
     Start-Sleep -Seconds 15
-    $order | Update-Order $state -PassThru
+     $order | Update-ACMEOrder $state -PassThru
 }
 
 # As soon as the url shows up we can create the PFX
